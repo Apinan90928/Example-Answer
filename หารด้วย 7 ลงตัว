@@ -1,0 +1,16 @@
+นับจำนวนที่หารด้วย 7 ลงตัว ระหว่าง 0 - 5000
+
+pl/sql
+
+DECLARE
+X INTEGER := 50;
+SUM_ INTEGER;
+SUM_VC VARCHAR2(50);
+BEGIN
+  FOR I IN 0.. X LOOP
+  SUM_VC := I/7;
+  IF SUM_VC NOT LIKE('%.%') THEN
+  DBMS_OUTPUT.PUT_LINE(I || '/7 = ' || I/7);
+  END IF;
+  END LOOP;
+END;
