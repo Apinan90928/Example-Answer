@@ -1,0 +1,19 @@
+ให้ data มาดังต่อไปนี้
+Input : A = {1,2,3,4,5} B = {'A','B','C','D','E'}
+Output : "1E2D3C4B5A"
+เงื่อนไข : ห้ามใช้ Lib สำเร็จรูปทั้งหมด , โชว์วิธีคิดของคุณ , ห้ามแสดงผลออกมาโต้ง ๆ โดยไม่ผ่านวิธีคิด
+
+ภาษาที่ใช้ = pl/sql
+DECLARE
+  X VARCHAR2(50) :='1,2,3,4,5';
+  Y VARCHAR2(50) :='A,B,C,D,E';
+  XY INTEGER;
+  XYX VARCHAR2(500);
+BEGIN
+  XY := LENGTH(REPLACE(Y,',',''));
+  FOR I IN 1..LENGTH(REPLACE(X,',','')) LOOP
+    XYX := XYX || SUBSTR(REPLACE(X,',',''),I,1) || SUBSTR(REPLACE(Y,',',''),XY,1);
+    XY := XY - 1;
+  END LOOP;
+  DBMS_OUTPUT.PUT_LINE(XYX);
+END;
